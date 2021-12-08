@@ -8,6 +8,7 @@ function App() {
 
     const response = await fetch('http://localhost:3001/getUsers');
     await response.json().then(res => {
+      //שינוי
       console.log(res);
     });
 
