@@ -1,12 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import { useEffect } from 'react'
+import Toast from 'react-bootstrap/Toast';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 
 function App() {
 
   useEffect(async () => {
 
-    const response = await fetch('http://localhost:3001/getUsers');
+    const response = await fetch('http://localhost:3001/getAllContacts');
     await response.json().then(res => {
       //שינוי
       console.log(res);
@@ -16,7 +20,8 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <header className="App-header">
+
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -29,7 +34,14 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+        <InputGroup  className="p-3 SearchBox">
+       <InputGroup.Text dir="rtl" id="inputGroup-sizing-default">חיפוש</InputGroup.Text>
+       <FormControl 
+         aria-label="Default"
+         aria-describedby="inputGroup-sizing-default"
+       />
+     </InputGroup>
     </div>
   );
 }

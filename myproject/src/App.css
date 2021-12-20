@@ -1,10 +1,18 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
 .App {
-  text-align: center;
+  background-color: #282c34;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.SearchBox{
+  width: 30vw;
+  position: absolute;
+  top: 40vh;
+  right: 35vw;
 }
 
 @media (prefers-reduced-motion: no-preference) {
