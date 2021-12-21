@@ -70,7 +70,7 @@ function App() {
        />
        </InputGroup>
 {/* onClick={login} */}
-        <Button className="p-3" type="submit" variant="primary">התחבר</Button>
+        <Button className="m-3" type="submit" variant="primary">התחבר</Button>
         </form>
 
        {isLogin? <div className="colorwhite">התחברת בהצלחה</div>:null}
