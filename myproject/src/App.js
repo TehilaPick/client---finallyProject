@@ -4,13 +4,14 @@ import { useEffect } from 'react'
 import Toast from 'react-bootstrap/Toast';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
 
 function App() {
 
   useEffect(async () => {
 
-    const response = await fetch('http://localhost:3001/getAllContacts');
+    const response = await fetch('http://localhost:3001/login/mirinizri15@gmail.com');
     await response.json().then(res => {
       //שינוי
       console.log(res);
@@ -35,6 +36,16 @@ function App() {
           Learn React
         </a>
       </header> */}
+       <InputGroup  className="p-3 ">
+       <InputGroup.Text dir="rtl" id="inputGroup-sizing-default">חיפוש</InputGroup.Text>
+       <FormControl 
+         aria-label="Default"
+         aria-describedby="inputGroup-sizing-default"
+       />
+     </InputGroup>
+
+        <Button onClick={login} variant="primary">התחבר</Button>
+
         <InputGroup  className="p-3 SearchBox">
        <InputGroup.Text dir="rtl" id="inputGroup-sizing-default">חיפוש</InputGroup.Text>
        <FormControl 
