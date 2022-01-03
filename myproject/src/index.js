@@ -6,11 +6,13 @@ import reportWebVitals from './reportWebVitals';
 import ThemeProvider from 'react-bootstrap/ThemeProvider'
 
 ReactDOM.render(
-  <ThemeProvider dir="rtl">
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-  </ThemeProvider>,
+ 
+  <React.StrictMode> 
+    <ThemeProvider dir="rtl">
+    <App />  
+    </ThemeProvider>
+  </React.StrictMode>,
+
   document.getElementById('root')
 );
 

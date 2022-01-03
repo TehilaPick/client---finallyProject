@@ -1,6 +1,15 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 .App {
-  background-color: #282c34;
+  /* background-color: #282c34; */
+}
+
+a{
+  color: white;
+  text-decoration: none;
+}
+
+.navbar>.container{
+  direction: rtl;
 }
 
 .App-logo {

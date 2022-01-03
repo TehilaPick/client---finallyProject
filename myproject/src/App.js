@@ -4,84 +4,98 @@ import { useEffect, useState } from 'react'
 import Toast from 'react-bootstrap/Toast';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+
+import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Register from './components/register';
+import Login from './components/login';
 
 
 function App() {
 
-  const [email, setEmail]= useState("");
-  const [isLogin, setIsLogin] = useState(false)
+
 
   useEffect(async () => {
 
-    const response = await fetch('http://localhost:3001/login/mirinizri15@gmail.com');
-    await response.json().then(res => {
-      //שינוי
-      console.log(res);
-    });
+    // const response = await fetch('http://localhost:3001/login/mirinizri15@gmail.com');
+    // await response.json().then(res => {
+    //   //שינוי
+    //   console.log(res);
+    // });
 
 
   }, [])
 
-  const login= (email)=>{
-     
-  }
 
-  const handleChange= (eve) =>{
-    setEmail(eve.target.value);
-    //console.log(email)
-  }
-
-  const handleSubmit =async (event)=> {
-    event.preventDefault();
-    const response = await fetch('http://localhost:3001/login/'+email);
-    await response.json().then(res => {
-      //שינוי
-      setIsLogin(true)
-      console.log(res);
-    });
-    
-  }
   return (
     <div className="App">
 
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <form onSubmit={handleSubmit}>
-       <InputGroup  className="p-3 ">
-       {/* <InputGroup.Text dir="rtl" id="inputGroup-sizing-default"></InputGroup.Text> */}
-       <FormControl 
-         value={email} onChange={handleChange} 
-         placeholder="אימייל"
-         aria-label="Default"
-         aria-describedby="inputGroup-sizing-default"
-       />
-       </InputGroup>
-{/* onClick={login} */}
-        <Button className="m-3" type="submit" variant="primary">התחבר</Button>
-        </form>
+<Router>
+      <div>
+      <Navbar bg="dark" variant="dark" expand="lg">
+  <Container>
+    <Navbar.Brand >ארועים</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link >
+        <Link to="/register">הרשמה</Link>
+        </Nav.Link>
+        <Nav.Link >
+        <Link to="/login">התחברות</Link>
+        </Nav.Link>
+        
+      </Nav>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
+        {/* <nav>
+          <ul> */}
+            {/* <li>
+              <Link to="/">בית</Link>
+            </li> */}
+            {/* <li>
+              <Link to="/register">הרשמה</Link>
+            </li>
+            <li>
+              <Link to="/login">התחברות</Link>
+            </li>
+          </ul>
+        </nav> */}
 
-       {isLogin? <div className="colorwhite">התחברת בהצלחה</div>:null}
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/register">
+            <Register />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          {/* <Route path="/">
+            <App />
+          </Route> */}
+        </Switch>
+      </div>
+    </Router>
 
-        <InputGroup  className="p-3 SearchBox">
+ 
+
+       <InputGroup  className="p-3 SearchBox">
        <InputGroup.Text dir="rtl" id="inputGroup-sizing-default">חיפוש</InputGroup.Text>
        <FormControl 
          aria-label="Default"
          aria-describedby="inputGroup-sizing-default"
        />
-     </InputGroup>
+       </InputGroup>
     </div>
   );
 }
