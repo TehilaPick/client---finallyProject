@@ -18,6 +18,7 @@ import {
 import Register from './components/register';
 import Login from './components/login';
 import Home from './components/home';
+import AddBussines from './components/addBussines';
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
      <Navbar.Toggle aria-controls="basic-navbar-nav" />
      <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
+        <Nav.Link >
+        <Link to="/addBussiness">הוספת עסק</Link>
+        </Nav.Link>
         <Nav.Link >
         <Link to="/register">הרשמה</Link>
         </Nav.Link>
@@ -85,6 +89,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/addBussiness">
+             <AddBussines/>
           </Route>
           {/* <Route path="/">
             <App />
