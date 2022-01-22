@@ -24,10 +24,16 @@ export default function Login(){
       event.preventDefault();
       const response = await fetch('http://localhost:3001/login/'+email);
       await response.json().then(res => {
-        localStorage.setItem('contactName',res.contactName)
-        const contactName= localStorage.getItem('contactName');
-        console.log(contactName);
-        setIsLogin(true)
+        if(res[0]){
+        
+          localStorage.setItem('contactName',res[0]?.contactname)
+          setIsLogin(true)
+        }
+        else{
+          localStorage.setItem('contactName','');
+        }
+       
+        
         //console.log(res);
       });
       

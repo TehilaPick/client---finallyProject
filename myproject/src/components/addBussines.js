@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 
-const AddBussines = ()=>{
+export default function AddBussines(){
+
+    const [isLogin,setIsLogin] = useState(false)
     //const 
     useEffect(()=>{
         const contactName= localStorage.getItem('contactName');
-        console.log(contactName);
+        if(contactName!=''){
+           setIsLogin(true)
+        }
+        else{
+            setIsLogin(false)
+        }
     },[])
-    return(<></>)
+    return(<>{isLogin ? <div>אתה מחובר למערכת ויכול להוסיף עסק</div>:
+    <div>לא התחברת למערכת</div>}</>)
 }
 
-export default AddBussines;
